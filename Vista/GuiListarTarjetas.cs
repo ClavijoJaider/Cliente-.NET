@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WayBankClient
+namespace WayBankClient.Vista
 {
-    public partial class Form1 : Form
+    public partial class GuiListarTarjetas : Form
     {
-        public Form1()
+        public GuiListarTarjetas()
         {
             InitializeComponent();
         }

@@ -48,16 +48,139 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GUIinicio.cs">
+    <Compile Include="Vista\GuiActualizarAhorros.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUIinicio.Designer.cs">
+    <Compile Include="Vista\GuiActualizarAhorros.Designer.cs">
+      <DependentUpon>GuiActualizarAhorros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\GuiActualizarCorriente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\GuiActualizarCorriente.Designer.cs">
+      <DependentUpon>GuiActualizarCorriente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\GuiActualizarTarjeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\GuiActualizarTarjeta.Designer.cs">
+      <DependentUpon>GuiActualizarTarjeta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\GuiBuscarAhorros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\GuiBuscarAhorros.Designer.cs">
+      <DependentUpon>GuiBuscarAhorros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\GuiBuscarCorriente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\GuiBuscarCorriente.Designer.cs">
+      <DependentUpon>GuiBuscarCorriente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\GuiBuscarTarjeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\GuiBuscarTarjeta.Designer.cs">
+      <DependentUpon>GuiBuscarTarjeta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\GuiCalcularRendimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\GuiCalcularRendimiento.Designer.cs">
+      <DependentUpon>GuiCalcularRendimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\GuiCrearAhorros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\GuiCrearAhorros.Designer.cs">
+      <DependentUpon>GuiCrearAhorros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\GuiCrearCorriene.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\GuiCrearCorriene.Designer.cs">
+      <DependentUpon>GuiCrearCorriene.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\GuiCrearTarjeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\GuiCrearTarjeta.Designer.cs">
+      <DependentUpon>GuiCrearTarjeta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\GuiEliminarAhorros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\GuiEliminarAhorros.Designer.cs">
+      <DependentUpon>GuiEliminarAhorros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\GuiEliminarCorriente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\GuiEliminarCorriente.Designer.cs">
+      <DependentUpon>GuiEliminarCorriente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\GUIinicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\GUIinicio.Designer.cs">
       <DependentUpon>GUIinicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\GuiListarAhorros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\GuiListarAhorros.Designer.cs">
+      <DependentUpon>GuiListarAhorros.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GUIinicio.resx">
+    <Compile Include="Vista\GuiListarCorriente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\GuiListarCorriente.Designer.cs">
+      <DependentUpon>GuiListarCorriente.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Vista\GuiActualizarAhorros.resx">
+      <DependentUpon>GuiActualizarAhorros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\GuiActualizarCorriente.resx">
+      <DependentUpon>GuiActualizarCorriente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\GuiActualizarTarjeta.resx">
+      <DependentUpon>GuiActualizarTarjeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\GuiBuscarAhorros.resx">
+      <DependentUpon>GuiBuscarAhorros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\GuiBuscarCorriente.resx">
+      <DependentUpon>GuiBuscarCorriente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\GuiBuscarTarjeta.resx">
+      <DependentUpon>GuiBuscarTarjeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\GuiCalcularRendimiento.resx">
+      <DependentUpon>GuiCalcularRendimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\GuiCrearAhorros.resx">
+      <DependentUpon>GuiCrearAhorros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\GuiCrearCorriene.resx">
+      <DependentUpon>GuiCrearCorriene.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\GuiCrearTarjeta.resx">
+      <DependentUpon>GuiCrearTarjeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\GuiEliminarAhorros.resx">
+      <DependentUpon>GuiEliminarAhorros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\GuiEliminarCorriente.resx">
+      <DependentUpon>GuiEliminarCorriente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\GUIinicio.resx">
       <DependentUpon>GUIinicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\GuiListarAhorros.resx">
+      <DependentUpon>GuiListarAhorros.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -68,6 +191,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Vista\GuiListarCorriente.resx">
+      <DependentUpon>GuiListarCorriente.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
