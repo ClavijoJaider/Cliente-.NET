@@ -37,14 +37,17 @@
             this.txtSaldo = new System.Windows.Forms.TextBox();
             this.txtTasaInteres = new System.Windows.Forms.TextBox();
             this.btnCrear = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pickerTiempo = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Location = new System.Drawing.Point(11, 14);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 20);
+            this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Numero Cuenta";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -52,72 +55,100 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 49);
+            this.label2.Location = new System.Drawing.Point(11, 48);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 20);
+            this.label2.Size = new System.Drawing.Size(36, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Titular";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 87);
+            this.label3.Location = new System.Drawing.Point(11, 113);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 20);
+            this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Saldo";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 121);
+            this.label4.Location = new System.Drawing.Point(11, 78);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 20);
+            this.label4.Size = new System.Drawing.Size(66, 13);
             this.label4.TabIndex = 3;
             this.label4.Text = "Tasa Interes";
             // 
             // txtNumCuenta
             // 
-            this.txtNumCuenta.Location = new System.Drawing.Point(153, 6);
+            this.txtNumCuenta.Location = new System.Drawing.Point(145, 11);
+            this.txtNumCuenta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNumCuenta.Name = "txtNumCuenta";
-            this.txtNumCuenta.Size = new System.Drawing.Size(197, 26);
+            this.txtNumCuenta.Size = new System.Drawing.Size(200, 20);
             this.txtNumCuenta.TabIndex = 4;
             // 
             // txtTitular
             // 
-            this.txtTitular.Location = new System.Drawing.Point(153, 43);
+            this.txtTitular.Location = new System.Drawing.Point(145, 75);
+            this.txtTitular.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTitular.Name = "txtTitular";
-            this.txtTitular.Size = new System.Drawing.Size(197, 26);
+            this.txtTitular.Size = new System.Drawing.Size(200, 20);
             this.txtTitular.TabIndex = 5;
             // 
             // txtSaldo
             // 
-            this.txtSaldo.Location = new System.Drawing.Point(153, 81);
+            this.txtSaldo.Location = new System.Drawing.Point(145, 45);
+            this.txtSaldo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSaldo.Name = "txtSaldo";
-            this.txtSaldo.Size = new System.Drawing.Size(197, 26);
+            this.txtSaldo.Size = new System.Drawing.Size(200, 20);
             this.txtSaldo.TabIndex = 6;
             // 
             // txtTasaInteres
             // 
-            this.txtTasaInteres.Location = new System.Drawing.Point(153, 119);
+            this.txtTasaInteres.Location = new System.Drawing.Point(145, 110);
+            this.txtTasaInteres.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTasaInteres.Name = "txtTasaInteres";
-            this.txtTasaInteres.Size = new System.Drawing.Size(197, 26);
+            this.txtTasaInteres.Size = new System.Drawing.Size(200, 20);
             this.txtTasaInteres.TabIndex = 7;
             // 
             // btnCrear
             // 
-            this.btnCrear.Location = new System.Drawing.Point(263, 151);
+            this.btnCrear.Location = new System.Drawing.Point(285, 168);
+            this.btnCrear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCrear.Name = "btnCrear";
-            this.btnCrear.Size = new System.Drawing.Size(75, 29);
+            this.btnCrear.Size = new System.Drawing.Size(60, 30);
             this.btnCrear.TabIndex = 8;
             this.btnCrear.Text = "Crear";
             this.btnCrear.UseVisualStyleBackColor = true;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(11, 138);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(79, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Fecha apertura";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // pickerTiempo
+            // 
+            this.pickerTiempo.Location = new System.Drawing.Point(145, 138);
+            this.pickerTiempo.Name = "pickerTiempo";
+            this.pickerTiempo.Size = new System.Drawing.Size(200, 20);
+            this.pickerTiempo.TabIndex = 10;
+            // 
             // GuiCrearAhorros
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(362, 192);
+            this.ClientSize = new System.Drawing.Size(356, 209);
+            this.Controls.Add(this.pickerTiempo);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.btnCrear);
             this.Controls.Add(this.txtTasaInteres);
             this.Controls.Add(this.txtSaldo);
@@ -127,6 +158,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "GuiCrearAhorros";
             this.Text = "Crear Ahorros";
             this.ResumeLayout(false);
@@ -145,5 +177,7 @@
         private System.Windows.Forms.TextBox txtSaldo;
         private System.Windows.Forms.TextBox txtTasaInteres;
         private System.Windows.Forms.Button btnCrear;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker pickerTiempo;
     }
 }

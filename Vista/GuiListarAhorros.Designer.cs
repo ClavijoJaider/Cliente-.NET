@@ -30,13 +30,15 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnListar = new System.Windows.Forms.Button();
             this.NumCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Titular = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Saldo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TasaInteres = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MontoMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaApertura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnListar = new System.Windows.Forms.Button();
+            this.cmbxFitrar = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -44,9 +46,10 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Location = new System.Drawing.Point(13, 13);
+            this.panel1.Location = new System.Drawing.Point(9, 8);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(706, 250);
+            this.panel1.Size = new System.Drawing.Size(705, 234);
             this.panel1.TabIndex = 0;
             // 
             // dataGridView1
@@ -57,13 +60,25 @@
             this.Titular,
             this.Saldo,
             this.TasaInteres,
-            this.MontoMin,
+            this.FechaApertura,
             this.Estado});
-            this.dataGridView1.Location = new System.Drawing.Point(19, 15);
+            this.dataGridView1.Location = new System.Drawing.Point(15, 17);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(640, 221);
+            this.dataGridView1.Size = new System.Drawing.Size(661, 196);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // btnListar
+            // 
+            this.btnListar.Location = new System.Drawing.Point(616, 266);
+            this.btnListar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(69, 33);
+            this.btnListar.TabIndex = 1;
+            this.btnListar.Text = "Listar";
+            this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.button1_Click);
             // 
             // NumCuenta
             // 
@@ -85,38 +100,53 @@
             this.TasaInteres.HeaderText = "Tasa Interes";
             this.TasaInteres.Name = "TasaInteres";
             // 
-            // MontoMin
+            // FechaApertura
             // 
-            this.MontoMin.HeaderText = "Monto Minimo";
-            this.MontoMin.Name = "MontoMin";
+            this.FechaApertura.HeaderText = "Fecha Apertura";
+            this.FechaApertura.Name = "FechaApertura";
             // 
             // Estado
             // 
             this.Estado.HeaderText = "Estado";
             this.Estado.Name = "Estado";
             // 
-            // btnListar
+            // cmbxFitrar
             // 
-            this.btnListar.Location = new System.Drawing.Point(644, 280);
-            this.btnListar.Name = "btnListar";
-            this.btnListar.Size = new System.Drawing.Size(75, 26);
-            this.btnListar.TabIndex = 1;
-            this.btnListar.Text = "Listar";
-            this.btnListar.UseVisualStyleBackColor = true;
-            this.btnListar.Click += new System.EventHandler(this.button1_Click);
+            this.cmbxFitrar.FormattingEnabled = true;
+            this.cmbxFitrar.Items.AddRange(new object[] {
+            "Normal",
+            "Estado"});
+            this.cmbxFitrar.Location = new System.Drawing.Point(479, 273);
+            this.cmbxFitrar.Name = "cmbxFitrar";
+            this.cmbxFitrar.Size = new System.Drawing.Size(121, 21);
+            this.cmbxFitrar.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(407, 276);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Filtrar por";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // GuiListarAhorros
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(730, 319);
+            this.ClientSize = new System.Drawing.Size(723, 310);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cmbxFitrar);
             this.Controls.Add(this.btnListar);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "GuiListarAhorros";
             this.Text = "GuiListar";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -124,12 +154,14 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnListar;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumCuenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Titular;
         private System.Windows.Forms.DataGridViewTextBoxColumn Saldo;
         private System.Windows.Forms.DataGridViewTextBoxColumn TasaInteres;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MontoMin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaApertura;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private System.Windows.Forms.Button btnListar;
+        private System.Windows.Forms.ComboBox cmbxFitrar;
+        private System.Windows.Forms.Label label1;
     }
 }
