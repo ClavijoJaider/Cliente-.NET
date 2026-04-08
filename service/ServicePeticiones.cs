@@ -86,7 +86,6 @@ namespace WayBankClient.service
             var response = client.Get(request);
             if (response.IsSuccessful)
             {
-                // Esto mostrará el "Servicio CuentaAhorros Ok!" que tienes en tu ResponseEntity.ok()
                 MessageBox.Show(response.Content, "Estado del Servidor", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
