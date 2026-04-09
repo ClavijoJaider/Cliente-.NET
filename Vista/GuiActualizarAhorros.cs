@@ -45,6 +45,14 @@ namespace WayBankClient
                     return;
                 }
 
+                if (cuenta.Estado != "Activo")
+                {
+                    MessageBox.Show("La cuenta se encuentra inactiva.", "Cuenta inactiva",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    LimpiarCampos();
+                    return;
+                }
+
                 txtNumCuenta.Text = cuenta.NumeroCuenta.ToString();
                 txtTitular.Text = cuenta.Titular;
                 txtSaldo.Text = cuenta.Saldo.ToString();
@@ -135,6 +143,7 @@ namespace WayBankClient
             txtTitular.ReadOnly = bloquear;
             txtSaldo.ReadOnly = bloquear;
             txtFecha.ReadOnly = bloquear;
+            txtTasaInteres.ReadOnly = bloquear;
 
             btnActualizar.Enabled = !bloquear;
         }
@@ -144,6 +153,7 @@ namespace WayBankClient
             txtNumCuenta.Clear();
             txtTitular.Clear();
             txtSaldo.Clear();
+            txtTasaInteres.Clear();
            
            
             txtNumInput.Clear();

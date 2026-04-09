@@ -34,6 +34,7 @@ namespace WayBankClient
         private void GuiCrearAhorros_Load(object sender, EventArgs e)
         {
             pickerTiempo.Format = DateTimePickerFormat.Short;
+            pickerTiempo.Value = DateTime.Now;
         }
 
         private void txtNumCuenta_TextChanged(object sender, EventArgs e)
@@ -55,25 +56,52 @@ namespace WayBankClient
         {
             try
             {
+               
                 if (string.IsNullOrWhiteSpace(txtNumCuenta.Text) ||
                     string.IsNullOrWhiteSpace(txtTasaInteres.Text) ||
                     string.IsNullOrWhiteSpace(txtSaldo.Text) ||
                     string.IsNullOrWhiteSpace(txtTitular.Text))
-               
                 {
-                    MessageBox.Show("Complete todos los campos.",
-                        "Advertencia",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
+                    MessageBox.Show("Complete todos los campos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
+                int numeroCuenta = int.Parse(txtNumCuenta.Text);
+                string titular = txtTitular.Text.Trim();
+                double saldo = double.Parse(txtSaldo.Text);
+                double tasaInteres = double.Parse(txtTasaInteres.Text);
+
+                
+                if (numeroCuenta < 0)
+                {
+                    MessageBox.Show("El número de cuenta no puede ser negativo.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtNumCuenta.Focus();
+                    return;
+                }
+
+                
+                if (string.IsNullOrEmpty(titular))
+                {
+                    MessageBox.Show("El titular no puede estar vacío.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtTitular.Focus();
+                    return;
+                }
+
+                
+                if (saldo < 200000.0)
+                {
+                    MessageBox.Show("El saldo inicial mínimo es $200.000", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtSaldo.Focus();
+                    return;
+                }
+
+                
                 CuentaAhorrosDto cuenta = new CuentaAhorrosDto
                 {
-                    NumeroCuenta = int.Parse(txtNumCuenta.Text),
-                    Titular = txtTitular.Text,
-                    TasaInteres = double.Parse(txtTasaInteres.Text),
-                    Saldo = double.Parse(txtSaldo.Text),
+                    NumeroCuenta = numeroCuenta,
+                    Titular = titular,
+                    TasaInteres = tasaInteres,
+                    Saldo = saldo,
                     Estado = "Activo",
                     FechaApertura = pickerTiempo.Value
                 };
@@ -82,34 +110,21 @@ namespace WayBankClient
 
                 if (creado)
                 {
-                    MessageBox.Show("Cuenta creada correctamente.",
-                        "Éxito",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-
+                    MessageBox.Show("Cuenta creada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarCampos();
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo crear la cuenta.",
-                        "Error",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
+                    MessageBox.Show("No se pudo crear la cuenta (Error en el servidor).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (FormatException)
             {
-                MessageBox.Show("Verifique que Número de cuenta, Tasa de interés y Saldo sean numéricos.",
-                    "Error de formato",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show("Verifique que Número de cuenta, Tasa de interés y Saldo sean numéricos.", "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message,
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show("Error inesperado: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WayBankClient.model;
 using WayBankClient.service;
 
 namespace WayBankClient
@@ -37,6 +38,11 @@ namespace WayBankClient
         private void CargarCuentas()
         {
             var lista = service.ListarCuentas();
+            ActualizarTabla(lista);
+        }
+
+        private void ActualizarTabla(List<CuentaAhorrosDto> lista)
+        {
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = lista;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -44,21 +50,17 @@ namespace WayBankClient
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            
+            string titular = txtTitular.Text.Trim();
             string estado = cmbxFiltrar.Text;
 
-            if (estado == "Todos")
-            {
-                var lista = service.ListarCuentas();
-                dataGridView1.DataSource = null;
-                dataGridView1.DataSource = lista;
-            }
-            else
-            {
-                var lista = service.ListarCuentasPorEstado(estado);
-                dataGridView1.DataSource = null;
-                dataGridView1.DataSource = lista;
-            }
+            
+            var lista = service.FiltrarCuentas(titular, estado);
 
+            
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = lista;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
@@ -68,6 +70,11 @@ namespace WayBankClient
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

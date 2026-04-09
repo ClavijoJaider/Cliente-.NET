@@ -36,14 +36,14 @@
             this.txtTitular = new System.Windows.Forms.TextBox();
             this.txtSaldo = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtTasaInteres = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.txtFecha = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtParametro = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.cmbxFiltrar = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtTasaInteres = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,7 +91,7 @@
             // txtNumCuenta
             // 
             this.txtNumCuenta.Location = new System.Drawing.Point(188, 9);
-            this.txtNumCuenta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNumCuenta.Margin = new System.Windows.Forms.Padding(2);
             this.txtNumCuenta.Name = "txtNumCuenta";
             this.txtNumCuenta.ReadOnly = true;
             this.txtNumCuenta.Size = new System.Drawing.Size(151, 20);
@@ -100,7 +100,7 @@
             // txtTitular
             // 
             this.txtTitular.Location = new System.Drawing.Point(188, 37);
-            this.txtTitular.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTitular.Margin = new System.Windows.Forms.Padding(2);
             this.txtTitular.Name = "txtTitular";
             this.txtTitular.ReadOnly = true;
             this.txtTitular.Size = new System.Drawing.Size(151, 20);
@@ -109,7 +109,7 @@
             // txtSaldo
             // 
             this.txtSaldo.Location = new System.Drawing.Point(188, 61);
-            this.txtSaldo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSaldo.Margin = new System.Windows.Forms.Padding(2);
             this.txtSaldo.Name = "txtSaldo";
             this.txtSaldo.ReadOnly = true;
             this.txtSaldo.Size = new System.Drawing.Size(151, 20);
@@ -128,16 +128,35 @@
             this.panel1.Controls.Add(this.txtTitular);
             this.panel1.Controls.Add(this.txtNumCuenta);
             this.panel1.Location = new System.Drawing.Point(8, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(345, 153);
             this.panel1.TabIndex = 11;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // txtTasaInteres
+            // 
+            this.txtTasaInteres.Location = new System.Drawing.Point(188, 115);
+            this.txtTasaInteres.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTasaInteres.Name = "txtTasaInteres";
+            this.txtTasaInteres.ReadOnly = true;
+            this.txtTasaInteres.Size = new System.Drawing.Size(151, 20);
+            this.txtTasaInteres.TabIndex = 14;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(8, 115);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Tasa Interes";
+            // 
             // txtFecha
             // 
             this.txtFecha.Location = new System.Drawing.Point(188, 85);
-            this.txtFecha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtFecha.Margin = new System.Windows.Forms.Padding(2);
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.ReadOnly = true;
             this.txtFecha.Size = new System.Drawing.Size(151, 20);
@@ -156,7 +175,7 @@
             // txtParametro
             // 
             this.txtParametro.Location = new System.Drawing.Point(118, 216);
-            this.txtParametro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtParametro.Margin = new System.Windows.Forms.Padding(2);
             this.txtParametro.Name = "txtParametro";
             this.txtParametro.Size = new System.Drawing.Size(149, 20);
             this.txtParametro.TabIndex = 11;
@@ -165,7 +184,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Location = new System.Drawing.Point(276, 212);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(71, 27);
             this.btnBuscar.TabIndex = 12;
@@ -194,25 +213,6 @@
             this.cmbxFiltrar.TabIndex = 14;
             this.cmbxFiltrar.SelectedIndexChanged += new System.EventHandler(this.cmbxFiltrar_SelectedIndexChanged);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 115);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 13);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Tasa Interes";
-            // 
-            // txtTasaInteres
-            // 
-            this.txtTasaInteres.Location = new System.Drawing.Point(188, 115);
-            this.txtTasaInteres.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTasaInteres.Name = "txtTasaInteres";
-            this.txtTasaInteres.ReadOnly = true;
-            this.txtTasaInteres.Size = new System.Drawing.Size(151, 20);
-            this.txtTasaInteres.TabIndex = 14;
-            // 
             // GuiBuscarAhorros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -224,8 +224,9 @@
             this.Controls.Add(this.txtParametro);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label6);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GuiBuscarAhorros";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar Cuenta";
             this.Load += new System.EventHandler(this.GuiBuscarAhorros_Load);
             this.panel1.ResumeLayout(false);

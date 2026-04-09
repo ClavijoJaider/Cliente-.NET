@@ -17,5 +17,6 @@ namespace WayBankClient.service
         bool EliminarLogico(int numeroCuenta);
         bool ActualizarCuenta(int numeroCuenta, CuentaAhorrosDto cuentaEditada);
         void Healthcheck();
+        List<CuentaAhorrosDto> FiltrarCuentas(string titular, string estado);
     }
 }

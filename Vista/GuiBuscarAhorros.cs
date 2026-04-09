@@ -49,7 +49,6 @@ namespace WayBankClient
                     return;
                 }
 
-                //  Buscar por número
                 if (criterio == "NumeroCuenta")
                 {
                     if (!int.TryParse(valor, out int numero))
@@ -66,9 +65,15 @@ namespace WayBankClient
                         return;
                     }
 
+                    if (cuenta.Estado != "Activo")
+                    {
+                        MessageBox.Show("La cuenta se encuentra inactiva.", "Cuenta inactiva",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
                     MostrarCuenta(cuenta);
                 }
-                //  Buscar por titular
                 else if (criterio == "Titular")
                 {
                     var lista = service.BuscarPorTitular(valor);
@@ -79,7 +84,14 @@ namespace WayBankClient
                         return;
                     }
 
-                    // Mostrar la primera (o luego puedes usar DataGridView)
+                    
+                    if (lista[0].Estado != "Activo")
+                    {
+                        MessageBox.Show("La cuenta se encuentra inactiva.", "Cuenta inactiva",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
                     MostrarCuenta(lista[0]);
                 }
             }
