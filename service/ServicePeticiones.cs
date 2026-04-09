@@ -1,9 +1,5 @@
 ﻿using RestSharp;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WayBankClient.model;
 
@@ -11,89 +7,121 @@ namespace WayBankClient.service
 {
     public class ServicePeticiones : IServicePeticiones
     {
-        public bool EliminarLogico(int id)
+        private readonly RestClient client;
+
+        public ServicePeticiones()
         {
             var options = new RestClientOptions("http://localhost:8080/cuentas");
-            var client = new RestClient(options);
-            var request = new RestRequest($"/{id}", Method.Delete);
-            var response = client.Delete(request);
-            return response.IsSuccessful;
+            client = new RestClient(options);
         }
 
-        bool IServicePeticiones.ActualizarCuenta(string numeroCuenta, CuentaAhorrosDto cuentaEditada)
+        public bool CrearCuenta(CuentaAhorrosDto cuenta)
         {
-            var options = new RestClientOptions("http://localhost:8080/cuentas");
-            var client = new RestClient(options);
-            var request = new RestRequest($"/{numeroCuenta}", Method.Put);
-            request.AddJsonBody(cuentaEditada);
-            var response = client.Put(request);
-            return response.IsSuccessful;
+            var request = new RestRequest("", Method.Post);
+            request.AddJsonBody(cuenta);
+            var response = client.Execute(request);
+
+            if (!response.IsSuccessful)
+            {
+                MessageBox.Show("Error al crear cuenta: " + response.Content);
+                return false;
+            }
+
+            return true;
         }
 
-        CuentaAhorrosDto IServicePeticiones.BuscarPorId(int id)
+        public List<CuentaAhorrosDto> ListarCuentas()
         {
-            var options = new RestClientOptions("http://localhost:8080/cuentas");
-            var client = new RestClient(options);
-            var request = new RestRequest($"/{id}", Method.Get);
-            var response = client.Get<CuentaAhorrosDto>(request);
-            return response;
+            var request = new RestRequest("", Method.Get);
+            var response = client.Get<List<CuentaAhorrosDto>>(request);
+            return response ?? new List<CuentaAhorrosDto>();
         }
 
-        List<CuentaAhorrosDto> IServicePeticiones.BuscarPorTitular(string nombreTitular)
+        public List<CuentaAhorrosDto> ListarCuentasPorEstado(string estado)
         {
-            var options = new RestClientOptions("http://localhost:8080/cuentas");
-            var client = new RestClient(options);
-            var request = new RestRequest("/buscar", Method.Get);
+            var request = new RestRequest("filtrar", Method.Get);
+            request.AddQueryParameter("estado", estado);
+            var response = client.Get<List<CuentaAhorrosDto>>(request);
+            return response ?? new List<CuentaAhorrosDto>();
+        }
+
+        public List<CuentaAhorrosDto> FiltrarCuentas(string titular, string estado)
+        {
+            var request = new RestRequest("filtrar", Method.Get);
+
+            if (!string.IsNullOrWhiteSpace(titular))
+                request.AddQueryParameter("titular", titular);
+
+            if (!string.IsNullOrWhiteSpace(estado) && estado != "Todos")
+                request.AddQueryParameter("estado", estado);
+
+            var response = client.Get<List<CuentaAhorrosDto>>(request);
+            return response ?? new List<CuentaAhorrosDto>();
+        }
+
+        public List<CuentaAhorrosDto> BuscarPorTitular(string nombreTitular)
+        {
+            var request = new RestRequest("buscar", Method.Get);
             request.AddQueryParameter("titular", nombreTitular);
             var response = client.Get<List<CuentaAhorrosDto>>(request);
             return response ?? new List<CuentaAhorrosDto>();
         }
 
-        bool IServicePeticiones.CrearCuenta(CuentaAhorrosDto cuenta)
+        public CuentaAhorrosDto BuscarPorNumeroCuenta(int numeroCuenta)
         {
-            var options = new RestClientOptions("http://localhost:8080/cuentas");
-            var client = new RestClient(options);
-            var request = new RestRequest("/", Method.Post);
-            request.AddJsonBody(cuenta);
-            var response = client.Post(request);
-            return response.IsSuccessful;
+            var request = new RestRequest($"{numeroCuenta}", Method.Get);
+            var response = client.Execute<CuentaAhorrosDto>(request);
+
+            if (!response.IsSuccessful || response.Data == null)
+                return null;
+
+            return response.Data;
         }
 
-        List<CuentaAhorrosDto> IServicePeticiones.ListarCuentas()
+        public bool EliminarLogico(int numeroCuenta)
         {
-            var options = new RestClientOptions("http://localhost:8080/cuentas");
-            var client = new RestClient(options);
-            var request = new RestRequest("/", Method.Get);
-            var response = client.Get<List<CuentaAhorrosDto>>(request);
-            return response ?? new List<CuentaAhorrosDto>();
+            var request = new RestRequest($"{numeroCuenta}", Method.Delete);
+            var response = client.Execute(request);
+
+            if (!response.IsSuccessful)
+            {
+                MessageBox.Show("Error al eliminar cuenta: " + response.Content);
+                return false;
+            }
+
+            return true;
         }
 
-        List<CuentaAhorrosDto> IServicePeticiones.ListarCuentasPorEstado(string estado)
+        public bool ActualizarCuenta(int numeroCuenta, CuentaAhorrosDto cuentaEditada)
         {
-            var options = new RestClientOptions("http://localhost:8080/cuentas");
-            var client = new RestClient(options);
-            var request = new RestRequest("/filtrar", Method.Get);
-            request.AddQueryParameter("estado", estado); // Usa QueryParam como indica tu Java
-            var response = client.Get<List<CuentaAhorrosDto>>(request);
-            return response ?? new List<CuentaAhorrosDto>();
+            var request = new RestRequest($"{numeroCuenta}", Method.Put);
+            request.AddJsonBody(cuentaEditada);
+            var response = client.Execute(request);
+
+            if (!response.IsSuccessful)
+            {
+                MessageBox.Show("Error al actualizar cuenta: " + response.Content);
+                return false;
+            }
+
+            return true;
         }
 
-        public void Healtcheck()
+        public void Healthcheck()
         {
-            var options = new RestClientOptions("http://localhost:8080/cuentas");
-            var client = new RestClient(options);
-            var request = new RestRequest("/healthcheck", Method.Get);
-            var response = client.Get(request);
+            var request = new RestRequest("healthcheck", Method.Get);
+            var response = client.Execute(request);
+
             if (response.IsSuccessful)
             {
-                MessageBox.Show(response.Content, "Estado del Servidor", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(response.Content, "Estado del servidor",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("No se pudo conectar con el servidor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se pudo conectar con el servidor",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
-
-
 }

@@ -62,7 +62,12 @@ namespace WayBankClient
         private void healtcheckToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ServicePeticiones sp = new ServicePeticiones();
-            sp.Healtcheck();
+            sp.Healthcheck();
+        }
+
+        private void GUIinicio_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

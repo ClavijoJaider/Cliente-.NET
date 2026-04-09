@@ -9,13 +9,13 @@ namespace WayBankClient.service
 {
     internal interface IServicePeticiones
     {
-
         bool CrearCuenta(CuentaAhorrosDto cuenta);
         List<CuentaAhorrosDto> ListarCuentas();
         List<CuentaAhorrosDto> ListarCuentasPorEstado(string estado);
         List<CuentaAhorrosDto> BuscarPorTitular(string nombreTitular);
-        CuentaAhorrosDto BuscarPorId(int id);
-        bool EliminarLogico(int id);
-        bool ActualizarCuenta(string numeroCuenta, CuentaAhorrosDto cuentaEditada);
+        CuentaAhorrosDto BuscarPorNumeroCuenta(int numeroCuenta);
+        bool EliminarLogico(int numeroCuenta);
+        bool ActualizarCuenta(int numeroCuenta, CuentaAhorrosDto cuentaEditada);
+        void Healthcheck();
     }
 }

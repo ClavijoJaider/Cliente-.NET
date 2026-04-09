@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace WayBankClient.model
 {
-    internal class CuentaAhorrosDto
+    public class CuentaAhorrosDto
     {
-        public int Id { get; set; }
+        public int NumeroCuenta { get; set; }
         public string Titular { get; set; }
         public double Saldo { get; set; }
         public string Estado { get; set; }
