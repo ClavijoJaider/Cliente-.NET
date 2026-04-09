@@ -105,7 +105,7 @@ namespace WayBankClient
                     Saldo = saldo,
                     TasaInteres = tasaInteres,
 
-                    FechaApertura = DateTime.Parse(txtFecha.Text)
+                    FechaApertura = new DateTime(DateTime.Parse(txtFecha.Text).Year, DateTime.Parse(txtFecha.Text).Month, DateTime.Parse(txtFecha.Text).Day, 0, 0, 0, DateTimeKind.Unspecified)
 
                 };
 
@@ -142,7 +142,7 @@ namespace WayBankClient
             txtNumCuenta.ReadOnly = true; 
             txtTitular.ReadOnly = bloquear;
             txtSaldo.ReadOnly = bloquear;
-            txtFecha.ReadOnly = true;
+            txtFecha.ReadOnly = bloquear;
             txtTasaInteres.ReadOnly = bloquear;
 
             btnActualizar.Enabled = !bloquear;

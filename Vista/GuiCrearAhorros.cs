@@ -103,7 +103,7 @@ namespace WayBankClient
                     TasaInteres = tasaInteres,
                     Saldo = saldo,
                     Estado = "Activo",
-                    FechaApertura = pickerTiempo.Value
+                    FechaApertura = new DateTime(pickerTiempo.Value.Year, pickerTiempo.Value.Month, pickerTiempo.Value.Day, pickerTiempo.Value.Hour, pickerTiempo.Value.Minute, pickerTiempo.Value.Second, DateTimeKind.Unspecified)
                 };
 
                 bool creado = service.CrearCuenta(cuenta);

@@ -123,7 +123,7 @@ namespace WayBankClient
             txtSaldo.Text = cuenta.Saldo.ToString();
             txtTasaInteres.Text = cuenta.TasaInteres.ToString();
             
-            txtFecha.Text = cuenta.FechaApertura.ToShortDateString();
+            txtFecha.Text = cuenta.FechaApertura.ToString("yyyy-MM-dd");
         }
     }
 }
