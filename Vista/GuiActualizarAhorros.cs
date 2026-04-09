@@ -142,7 +142,7 @@ namespace WayBankClient
             txtNumCuenta.ReadOnly = true; 
             txtTitular.ReadOnly = bloquear;
             txtSaldo.ReadOnly = bloquear;
-            txtFecha.ReadOnly = bloquear;
+            txtFecha.ReadOnly = true;
             txtTasaInteres.ReadOnly = bloquear;
 
             btnActualizar.Enabled = !bloquear;
