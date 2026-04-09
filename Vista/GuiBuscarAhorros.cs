@@ -49,7 +49,7 @@ namespace WayBankClient
                     return;
                 }
 
-                // 🔍 Buscar por número
+                //  Buscar por número
                 if (criterio == "NumeroCuenta")
                 {
                     if (!int.TryParse(valor, out int numero))
@@ -68,7 +68,7 @@ namespace WayBankClient
 
                     MostrarCuenta(cuenta);
                 }
-                // 🔍 Buscar por titular
+                //  Buscar por titular
                 else if (criterio == "Titular")
                 {
                     var lista = service.BuscarPorTitular(valor);
@@ -109,6 +109,7 @@ namespace WayBankClient
             txtNumCuenta.Text = cuenta.NumeroCuenta.ToString();
             txtTitular.Text = cuenta.Titular;
             txtSaldo.Text = cuenta.Saldo.ToString();
+            txtTasaInteres.Text = cuenta.TasaInteres.ToString();
             
             txtFecha.Text = cuenta.FechaApertura.ToShortDateString();
         }

@@ -48,6 +48,7 @@ namespace WayBankClient
                 txtNumCuenta.Text = cuenta.NumeroCuenta.ToString();
                 txtTitular.Text = cuenta.Titular;
                 txtSaldo.Text = cuenta.Saldo.ToString();
+                txtTasaInteres.Text = cuenta.TasaInteres.ToString();
 
 
                 txtFecha.Text = cuenta.FechaApertura.ToString("yyyy-MM-dd");
@@ -83,13 +84,18 @@ namespace WayBankClient
                     return;
                 }
 
-
+                if (!double.TryParse(txtTasaInteres.Text.Trim(), out double tasaInteres))
+                {
+                    MessageBox.Show("Tasa de interés inválida.");
+                    return;
+                }
 
                 CuentaAhorrosDto cuentaEditada = new CuentaAhorrosDto
                 {
                     NumeroCuenta = numeroCuenta,
                     Titular = txtTitular.Text.Trim(),
                     Saldo = saldo,
+                    TasaInteres = tasaInteres,
 
                     FechaApertura = DateTime.Parse(txtFecha.Text)
 
